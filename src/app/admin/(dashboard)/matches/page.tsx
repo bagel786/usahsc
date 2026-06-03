@@ -47,7 +47,7 @@ export default async function AdminMatchesPage() {
           <tbody>
             {matches.map((m) => (
               <tr key={m.id} className="border-b border-line/50 hover:bg-surface-2/40">
-                <td className="px-4 py-3 font-medium text-white">
+                <td className="px-4 py-3 font-medium text-heading">
                   {m.homeTeam.name} <span className="text-muted">vs</span> {m.awayTeam.name}
                 </td>
                 <td className="px-4 py-3 text-muted">
@@ -60,7 +60,7 @@ export default async function AdminMatchesPage() {
                 <td className="px-4 py-3 text-right">
                   <Link
                     href={`/admin/matches/${m.id}`}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-white hover:border-electric/50"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-heading hover:border-electric/50"
                   >
                     <Pencil size={13} /> Edit
                   </Link>

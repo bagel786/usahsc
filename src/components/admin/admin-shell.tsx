@@ -56,7 +56,7 @@ export function AdminShell({
         <div className="flex h-16 items-center justify-between border-b border-line px-5">
           <Link href="/admin" className="flex items-center gap-2" onClick={() => setOpen(false)}>
             <Image src="/brand/logo-square.png" alt="" width={32} height={32} className="h-8 w-8 rounded-md object-contain" />
-            <span className="font-display text-sm font-bold uppercase tracking-wide text-white">
+            <span className="font-display text-sm font-bold uppercase tracking-wide text-heading">
               USAHSC Admin
             </span>
           </Link>
@@ -79,8 +79,8 @@ export function AdminShell({
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                   active
-                    ? "bg-brand/15 text-white"
-                    : "text-muted hover:bg-surface hover:text-white",
+                    ? "bg-brand/15 text-brand"
+                    : "text-muted hover:bg-surface-2 hover:text-heading",
                 )}
               >
                 <Icon size={18} className={active ? "text-brand-light" : ""} />
@@ -94,12 +94,12 @@ export function AdminShell({
           <Link
             href="/"
             target="_blank"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted hover:text-white"
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted hover:text-heading"
           >
             <ExternalLink size={18} /> View site
           </Link>
           <form action={signOutAction}>
-            <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted hover:text-white">
+            <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted hover:text-heading">
               <LogOut size={18} /> Sign out
             </button>
           </form>
@@ -119,9 +119,9 @@ export function AdminShell({
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex h-16 items-center gap-3 border-b border-line bg-ink px-4 lg:hidden">
           <button onClick={() => setOpen(true)} aria-label="Open menu">
-            <Menu size={22} className="text-white" />
+            <Menu size={22} className="text-heading" />
           </button>
-          <span className="font-display font-bold uppercase text-white">USAHSC Admin</span>
+          <span className="font-display font-bold uppercase text-heading">USAHSC Admin</span>
         </header>
         <main className="flex-1 p-5 sm:p-8">{children}</main>
       </div>

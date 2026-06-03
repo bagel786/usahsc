@@ -39,7 +39,7 @@ export default async function AdminStatsPage() {
           return (
             <section key={cat.id} className="card overflow-hidden">
               <div className="border-b border-line/60 px-5 py-4">
-                <h2 className="font-display text-lg font-bold uppercase tracking-wide text-white">
+                <h2 className="font-display text-lg font-bold uppercase tracking-wide text-heading">
                   {cat.label}
                 </h2>
               </div>
@@ -49,7 +49,7 @@ export default async function AdminStatsPage() {
                   <li key={l.id} className="flex items-center gap-2 px-4 py-3">
                     <span className="w-5 text-xs font-bold text-muted">{l.rank}</span>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-semibold text-white">{l.playerName}</p>
+                      <p className="truncate font-semibold text-heading">{l.playerName}</p>
                       <p className="truncate text-xs text-muted">
                         {l.value}
                         {l.team ? ` · ${l.team.name}` : ""}

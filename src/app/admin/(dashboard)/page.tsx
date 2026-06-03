@@ -67,7 +67,7 @@ export default async function AdminDashboard() {
                 <Icon size={22} />
               </span>
               <div>
-                <p className="font-display text-3xl font-bold leading-none text-white">
+                <p className="font-display text-3xl font-bold leading-none text-heading">
                   {s.value}
                 </p>
                 <p className="text-xs uppercase tracking-wider text-muted">{s.label}</p>
@@ -127,12 +127,12 @@ function RecentPanel({
   return (
     <section className="card overflow-hidden">
       <div className="flex items-center justify-between border-b border-line/60 px-5 py-4">
-        <h2 className="font-display text-lg font-bold uppercase tracking-wide text-white">
+        <h2 className="font-display text-lg font-bold uppercase tracking-wide text-heading">
           {title}
         </h2>
         <Link
           href={href}
-          className="flex items-center gap-1 text-sm font-semibold text-electric hover:text-white"
+          className="flex items-center gap-1 text-sm font-semibold text-electric hover:text-heading"
         >
           View all <ArrowRight size={14} />
         </Link>
@@ -142,7 +142,7 @@ function RecentPanel({
           {items.map((it) => (
             <li key={it.id} className="flex items-center gap-3 px-5 py-3.5">
               <div className="min-w-0 flex-1">
-                <p className="flex items-center gap-2 font-semibold text-white">
+                <p className="flex items-center gap-2 font-semibold text-heading">
                   {it.primary}
                   {it.isNew && (
                     <span className="rounded bg-brand/20 px-1.5 py-0.5 text-[10px] font-bold uppercase text-brand-light">

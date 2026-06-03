@@ -17,7 +17,7 @@ export default function AdminLoginPage() {
             height={64}
             className="h-16 w-16 rounded-xl object-contain"
           />
-          <h1 className="mt-4 font-display text-2xl font-bold uppercase tracking-wide text-white">
+          <h1 className="mt-4 font-display text-2xl font-bold uppercase tracking-wide text-heading">
             Admin Sign In
           </h1>
           <p className="mt-1 text-sm text-muted">
@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="mt-6 text-center text-sm text-muted">
-          <Link href="/" className="hover:text-white">
+          <Link href="/" className="hover:text-heading">
             ← Back to site
           </Link>
         </p>

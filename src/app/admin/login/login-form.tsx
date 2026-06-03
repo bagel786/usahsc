@@ -36,7 +36,7 @@ export function LoginForm() {
           type="text"
           autoComplete="username"
           required
-          className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-white outline-none focus:border-electric"
+          className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-heading outline-none focus:border-electric"
         />
       </div>
       <div>
@@ -49,7 +49,7 @@ export function LoginForm() {
           type="password"
           autoComplete="current-password"
           required
-          className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-white outline-none focus:border-electric"
+          className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-heading outline-none focus:border-electric"
         />
       </div>
 

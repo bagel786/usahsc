@@ -44,7 +44,7 @@ export default async function AdminTeamsPage() {
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <TeamLogo name={t.name} logoUrl={t.logoUrl} color={t.primaryColor} size={32} />
-                    <span className="font-display font-semibold uppercase tracking-wide text-white">
+                    <span className="font-display font-semibold uppercase tracking-wide text-heading">
                       {t.name}
                     </span>
                     {!t.isActive && (
@@ -60,7 +60,7 @@ export default async function AdminTeamsPage() {
                 <td className="px-4 py-3 text-right">
                   <Link
                     href={`/admin/teams/${t.id}`}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-white hover:border-electric/50"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-heading hover:border-electric/50"
                   >
                     <Pencil size={13} /> Edit
                   </Link>

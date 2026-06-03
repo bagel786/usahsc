@@ -68,7 +68,7 @@ export function ContentForm({ settings }: { settings: SiteSettings }) {
     <form action={formAction} className="space-y-8">
       {GROUPS.map((group) => (
         <section key={group.title} className="card p-6">
-          <h2 className="mb-5 font-display text-lg font-bold uppercase tracking-wide text-white">
+          <h2 className="mb-5 font-display text-lg font-bold uppercase tracking-wide text-heading">
             {group.title}
           </h2>
           <div className="grid gap-5 sm:grid-cols-2">

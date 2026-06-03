@@ -46,7 +46,7 @@ export default async function AdminStandingsPage() {
               <input type="hidden" name="teamId" value={t.id} />
               <div className="flex min-w-44 items-center gap-2.5">
                 <TeamLogo name={t.name} logoUrl={t.logoUrl} color={t.primaryColor} size={32} />
-                <span className="font-display font-semibold uppercase tracking-wide text-white">
+                <span className="font-display font-semibold uppercase tracking-wide text-heading">
                   {t.name}
                 </span>
               </div>
@@ -58,7 +58,7 @@ export default async function AdminStandingsPage() {
                     name={f.key}
                     type="number"
                     defaultValue={s ? (s[f.key] as number) : 0}
-                    className="w-16 rounded-lg border border-line bg-surface px-2 py-1.5 text-center text-sm text-white outline-none focus:border-electric"
+                    className="w-16 rounded-lg border border-line bg-surface px-2 py-1.5 text-center text-sm text-heading outline-none focus:border-electric"
                   />
                 </label>
               ))}
@@ -70,7 +70,7 @@ export default async function AdminStandingsPage() {
                   type="number"
                   step="0.01"
                   defaultValue={s?.netRunRate ?? 0}
-                  className="w-20 rounded-lg border border-line bg-surface px-2 py-1.5 text-center text-sm text-white outline-none focus:border-electric"
+                  className="w-20 rounded-lg border border-line bg-surface px-2 py-1.5 text-center text-sm text-heading outline-none focus:border-electric"
                 />
               </label>
 

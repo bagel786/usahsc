@@ -17,7 +17,7 @@ export function Field({
     <div className={className}>
       <label
         htmlFor={htmlFor}
-        className="mb-1.5 block text-sm font-medium text-white"
+        className="mb-1.5 block text-sm font-medium text-heading"
       >
         {label}
       </label>
@@ -28,7 +28,7 @@ export function Field({
 }
 
 const fieldStyles =
-  "w-full rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-white outline-none transition-colors placeholder:text-muted/60 focus:border-electric";
+  "w-full rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-heading outline-none transition-colors placeholder:text-muted/60 focus:border-electric";
 
 export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={cn(fieldStyles, props.className)} />;
@@ -49,7 +49,7 @@ export function Checkbox({
   ...props
 }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <label className="flex items-center gap-2 text-sm text-white">
+    <label className="flex items-center gap-2 text-sm text-heading">
       <input
         type="checkbox"
         {...props}

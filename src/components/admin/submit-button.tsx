@@ -18,7 +18,7 @@ export function SubmitButton({
   const styles = {
     primary: "bg-brand text-white hover:bg-brand-light",
     danger: "bg-surface-2 text-brand-light border border-brand/40 hover:bg-brand/10",
-    secondary: "bg-surface-2 text-white border border-line hover:border-electric/50",
+    secondary: "bg-surface-2 text-heading border border-line hover:border-electric/50",
   }[variant];
 
   return (

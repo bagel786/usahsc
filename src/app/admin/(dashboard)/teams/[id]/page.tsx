@@ -35,7 +35,7 @@ export default async function EditTeamPage({
 
       <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <section>
-          <h2 className="mb-4 font-display text-lg font-bold uppercase tracking-wide text-white">
+          <h2 className="mb-4 font-display text-lg font-bold uppercase tracking-wide text-heading">
             Team details
           </h2>
           <TeamForm team={team} />
@@ -50,7 +50,7 @@ export default async function EditTeamPage({
 
         {/* Roster */}
         <section>
-          <h2 className="mb-4 font-display text-lg font-bold uppercase tracking-wide text-white">
+          <h2 className="mb-4 font-display text-lg font-bold uppercase tracking-wide text-heading">
             Roster ({team.players.length})
           </h2>
 
@@ -60,7 +60,7 @@ export default async function EditTeamPage({
                 <span className="flex h-7 w-7 items-center justify-center rounded bg-surface-2 text-xs font-bold text-muted">
                   {p.jerseyNumber ?? "–"}
                 </span>
-                <span className="flex-1 font-medium text-white">
+                <span className="flex-1 font-medium text-heading">
                   {p.name}
                   {p.isCaptain && (
                     <Star size={13} className="ml-1.5 inline text-gold" fill="currentColor" />
@@ -83,7 +83,7 @@ export default async function EditTeamPage({
 
           <form action={addPlayer} className="card space-y-4 p-5">
             <input type="hidden" name="teamId" value={team.id} />
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-white">
+            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-heading">
               Add player
             </h3>
             <Field label="Name" htmlFor="pname">

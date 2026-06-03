@@ -32,7 +32,7 @@ export default async function RegistrationsPage() {
         {regs.length > 0 && (
           <Link
             href="/admin/registrations/export"
-            className="inline-flex items-center gap-2 rounded-lg border border-line px-4 py-2.5 text-sm font-semibold text-white hover:border-electric/50"
+            className="inline-flex items-center gap-2 rounded-lg border border-line px-4 py-2.5 text-sm font-semibold text-heading hover:border-electric/50"
           >
             <Download size={16} /> Export CSV
           </Link>
@@ -45,7 +45,7 @@ export default async function RegistrationsPage() {
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">
+                  <h3 className="font-display text-lg font-bold uppercase tracking-wide text-heading">
                     {r.name}
                   </h3>
                   <span className={`rounded px-2 py-0.5 text-[10px] font-bold uppercase ${STATUS_STYLES[r.status] ?? ""}`}>
@@ -60,11 +60,11 @@ export default async function RegistrationsPage() {
             </div>
 
             <div className="mt-3 flex flex-wrap gap-4 text-sm">
-              <a href={`mailto:${r.email}`} className="flex items-center gap-1.5 text-electric hover:text-white">
+              <a href={`mailto:${r.email}`} className="flex items-center gap-1.5 text-electric hover:text-heading">
                 <Mail size={14} /> {r.email}
               </a>
               {r.phone && (
-                <a href={`tel:${r.phone}`} className="flex items-center gap-1.5 text-electric hover:text-white">
+                <a href={`tel:${r.phone}`} className="flex items-center gap-1.5 text-electric hover:text-heading">
                   <Phone size={14} /> {r.phone}
                 </a>
               )}
@@ -83,7 +83,7 @@ export default async function RegistrationsPage() {
                   <input type="hidden" name="status" value={s} />
                   <button
                     disabled={r.status === s}
-                    className="rounded-lg border border-line px-3 py-1.5 text-xs font-semibold capitalize text-muted transition-colors hover:border-electric/50 hover:text-white disabled:opacity-40"
+                    className="rounded-lg border border-line px-3 py-1.5 text-xs font-semibold capitalize text-muted transition-colors hover:border-electric/50 hover:text-heading disabled:opacity-40"
                   >
                     Mark {s}
                   </button>

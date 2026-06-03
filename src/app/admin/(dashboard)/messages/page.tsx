@@ -34,14 +34,14 @@ export default async function MessagesPage() {
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">
+                  <h3 className="font-display text-lg font-bold uppercase tracking-wide text-heading">
                     {m.name}
                   </h3>
                   <span className={`rounded px-2 py-0.5 text-[10px] font-bold uppercase ${STATUS_STYLES[m.status] ?? ""}`}>
                     {m.status}
                   </span>
                 </div>
-                <a href={`mailto:${m.email}`} className="mt-0.5 flex items-center gap-1.5 text-sm text-electric hover:text-white">
+                <a href={`mailto:${m.email}`} className="mt-0.5 flex items-center gap-1.5 text-sm text-electric hover:text-heading">
                   <Mail size={14} /> {m.email}
                 </a>
               </div>
@@ -59,7 +59,7 @@ export default async function MessagesPage() {
                   <input type="hidden" name="status" value={s} />
                   <button
                     disabled={m.status === s}
-                    className="rounded-lg border border-line px-3 py-1.5 text-xs font-semibold capitalize text-muted transition-colors hover:border-electric/50 hover:text-white disabled:opacity-40"
+                    className="rounded-lg border border-line px-3 py-1.5 text-xs font-semibold capitalize text-muted transition-colors hover:border-electric/50 hover:text-heading disabled:opacity-40"
                   >
                     Mark {s}
                   </button>

@@ -19,14 +19,14 @@ export function PageTitle({
       {backHref && (
         <Link
           href={backHref}
-          className="mb-3 inline-flex items-center gap-1.5 text-sm text-muted hover:text-white"
+          className="mb-3 inline-flex items-center gap-1.5 text-sm text-muted hover:text-heading"
         >
           <ArrowLeft size={15} /> Back
         </Link>
       )}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-display text-3xl font-bold uppercase tracking-wide text-white">
+          <h1 className="font-display text-3xl font-bold uppercase tracking-wide text-heading">
             {title}
           </h1>
           {subtitle && <p className="mt-1 text-sm text-muted">{subtitle}</p>}
