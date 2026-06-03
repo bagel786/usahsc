@@ -29,15 +29,17 @@ const TEAMS: TeamSeed[] = [
 
 async function main() {
   // --- Admin user -------------------------------------------------------
-  const email = process.env.ADMIN_EMAIL ?? "admin@usahsc.com";
+  // Login is by username, stored in the email column. Normalize casing so it
+  // matches the lowercase+trim lookup done at sign-in.
+  const username = (process.env.ADMIN_EMAIL ?? "admin").toLowerCase().trim();
   const password = process.env.ADMIN_PASSWORD ?? "ChangeMe!2026";
   const passwordHash = await bcrypt.hash(password, 12);
   await prisma.adminUser.upsert({
-    where: { email },
+    where: { email: username },
     update: { passwordHash },
-    create: { email, passwordHash, name: "USAHSC Admin" },
+    create: { email: username, passwordHash, name: "USAHSC Admin" },
   });
-  console.log(`✓ Admin user ready: ${email}`);
+  console.log(`✓ Admin user ready: ${username}`);
 
   // --- Editable site settings ------------------------------------------
   for (const [key, value] of Object.entries(SETTING_DEFAULTS)) {

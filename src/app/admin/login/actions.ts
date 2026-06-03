@@ -11,14 +11,14 @@ export async function authenticate(
 ): Promise<LoginState> {
   try {
     await signIn("credentials", {
-      email: formData.get("email"),
+      username: formData.get("username"),
       password: formData.get("password"),
       redirectTo: "/admin",
     });
     return {};
   } catch (error) {
     if (error instanceof AuthError) {
-      return { error: "Invalid email or password." };
+      return { error: "Invalid username or password." };
     }
     // Re-throw redirect/control-flow errors so Next can handle them.
     throw error;

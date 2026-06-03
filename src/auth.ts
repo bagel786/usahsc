@@ -6,7 +6,7 @@ import { prisma } from "@/lib/db";
 import { authConfig } from "@/auth.config";
 
 const credentialsSchema = z.object({
-  email: z.string().email(),
+  username: z.string().min(1),
   password: z.string().min(1),
 });
 
@@ -14,13 +14,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
-      credentials: { email: {}, password: {} },
+      credentials: { username: {}, password: {} },
       authorize: async (raw) => {
         const parsed = credentialsSchema.safeParse(raw);
         if (!parsed.success) return null;
 
-        const email = parsed.data.email.toLowerCase().trim();
-        const user = await prisma.adminUser.findUnique({ where: { email } });
+        // Username is stored in the AdminUser.email column (no migration needed).
+        const username = parsed.data.username.toLowerCase().trim();
+        const user = await prisma.adminUser.findUnique({ where: { email: username } });
         if (!user) return null;
 
         const valid = await bcrypt.compare(parsed.data.password, user.passwordHash);
