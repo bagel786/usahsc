@@ -12,11 +12,11 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
         <div>
           <div className="flex items-center gap-2.5">
             <Image
-              src="/brand/logo.jpg"
+              src="/brand/logo-square.png"
               alt={settings.leagueShortName}
               width={40}
               height={40}
-              className="h-10 w-10 rounded-md object-cover"
+              className="h-10 w-10 rounded-md object-contain"
             />
             <span className="font-display text-lg font-bold uppercase tracking-wide text-heading">
               {settings.leagueShortName}

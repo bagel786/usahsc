@@ -19,11 +19,11 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
       <div className="container-px flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image
-            src="/brand/logo.jpg"
+            src="/brand/logo-square.png"
             alt={settings.leagueShortName}
             width={44}
             height={44}
-            className="h-10 w-10 rounded-md object-cover"
+            className="h-10 w-10 rounded-md object-contain"
             priority
           />
           <span className="font-display text-lg font-bold uppercase leading-none tracking-wide text-heading">

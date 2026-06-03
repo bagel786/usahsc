@@ -55,7 +55,7 @@ export function AdminShell({
       >
         <div className="flex h-16 items-center justify-between border-b border-line px-5">
           <Link href="/admin" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <Image src="/brand/logo.jpg" alt="" width={32} height={32} className="h-8 w-8 rounded-md object-cover" />
+            <Image src="/brand/logo-square.png" alt="" width={32} height={32} className="h-8 w-8 rounded-md object-contain" />
             <span className="font-display text-sm font-bold uppercase tracking-wide text-white">
               USAHSC Admin
             </span>

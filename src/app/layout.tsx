@@ -24,10 +24,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "USA High School Cricket League",
     description: "Building the future of high-school cricket in Texas.",
-    images: ["/brand/logo.jpg"],
+    images: ["/brand/logo-square.png"],
     type: "website",
   },
-  icons: { icon: "/brand/logo.jpg" },
 };
 
 export default function RootLayout({

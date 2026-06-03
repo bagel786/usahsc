@@ -11,11 +11,11 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         <div className="mb-8 flex flex-col items-center text-center">
           <Image
-            src="/brand/logo.jpg"
+            src="/brand/logo-square.png"
             alt="USAHSC"
             width={64}
             height={64}
-            className="h-16 w-16 rounded-xl object-cover"
+            className="h-16 w-16 rounded-xl object-contain"
           />
           <h1 className="mt-4 font-display text-2xl font-bold uppercase tracking-wide text-white">
             Admin Sign In

@@ -5,11 +5,11 @@ export default function NotFound() {
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center">
       <Image
-        src="/brand/logo.jpg"
+        src="/brand/logo-square.png"
         alt="USAHSC"
         width={72}
         height={72}
-        className="h-18 w-18 rounded-xl object-cover"
+        className="h-18 w-18 rounded-xl object-contain"
       />
       <p className="mt-6 font-display text-6xl font-bold text-brand">404</p>
       <h1 className="mt-2 font-display text-2xl font-bold uppercase tracking-wide text-white">
