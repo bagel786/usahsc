@@ -1,0 +1,130 @@
+// USA HSC — data model
+// Postgres on Railway. Run: npx prisma migrate dev / npx prisma db seed
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  school       String
+  mascot       String?
+  logoUrl      String?
+  captain      String?
+  primaryColor String?  @default("#e11d2a")
+  cricclubsUrl String?
+  instagramUrl String?
+  bio          String?
+  displayOrder Int      @default(0)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  players     Player[]
+  homeMatches Match[]      @relation("homeTeam")
+  awayMatches Match[]      @relation("awayTeam")
+  standing    Standing?
+  statLeaders StatLeader[]
+}
+
+model Player {
+  id           String  @id @default(cuid())
+  teamId       String
+  team         Team    @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  name         String
+  role         String?
+  jerseyNumber Int?
+  isCaptain    Boolean @default(false)
+  order        Int     @default(0)
+
+  @@index([teamId])
+}
+
+model Match {
+  id           String   @id @default(cuid())
+  homeTeamId   String
+  awayTeamId   String
+  homeTeam     Team     @relation("homeTeam", fields: [homeTeamId], references: [id], onDelete: Cascade)
+  awayTeam     Team     @relation("awayTeam", fields: [awayTeamId], references: [id], onDelete: Cascade)
+  dateTime     DateTime
+  location     String?
+  stage        String?
+  status       String   @default("upcoming") // upcoming | live | completed
+  homeScore    String?
+  awayScore    String?
+  resultText   String?
+  scorecardUrl String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([dateTime])
+  @@index([status])
+}
+
+model Standing {
+  id         String @id @default(cuid())
+  teamId     String @unique
+  team       Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  played     Int    @default(0)
+  wins       Int    @default(0)
+  losses     Int    @default(0)
+  tiesNr     Int    @default(0)
+  points     Int    @default(0)
+  netRunRate Float  @default(0)
+}
+
+model StatLeader {
+  id         String  @id @default(cuid())
+  category   String // batting | bowling | mvp
+  playerName String
+  teamId     String?
+  team       Team?   @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  value      String
+  detail     String?
+  rank       Int     @default(0)
+
+  @@index([category])
+}
+
+model Registration {
+  id        String   @id @default(cuid())
+  name      String
+  school    String?
+  email     String
+  phone     String?
+  role      String?
+  message   String?
+  status    String   @default("new") // new | contacted | archived
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt @default(now())
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+}

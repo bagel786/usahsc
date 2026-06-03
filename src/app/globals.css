@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   USA HSC design tokens — clean, light "pro club" look
+   off-white base · white cards · navy headings · red accent · gold/blue detail
+--------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces (light) */
+  --color-ink: #f4f6f9;        /* page background */
+  --color-ink-2: #ffffff;      /* elevated bands: header, footer, page hero */
+  --color-surface: #ffffff;    /* cards */
+  --color-surface-2: #eef2f8;  /* subtle fills: chips, table heads, hovers */
+  --color-line: #e2e7f0;       /* borders / hairlines */
+
+  /* Brand */
+  --color-brand: #e11d2a;
+  --color-brand-dark: #b00f1c;
+  --color-brand-light: #ff3b48;
+
+  --color-navy: #16285a;
+  --color-navy-light: #243b78;
+
+  /* Accents tuned for contrast on white */
+  --color-electric: #1f74d6;
+  --color-gold: #b8860b;
+
+  /* Text */
+  --color-heading: #0f1b38;    /* deep navy — headings & emphasis */
+  --color-body: #38435c;       /* default body copy */
+  --color-muted: #69748c;      /* secondary text */
+
+  --font-display: var(--font-display), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(15, 27, 56, 0.04), 0 8px 24px -12px rgba(15, 27, 56, 0.12);
+  --shadow-glow: 0 10px 30px -10px rgba(225, 29, 42, 0.35);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  /* faint brand-tinted washes echoing the flyer, kept subtle on light */
+  background-image:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(31, 116, 214, 0.06), transparent 70%),
+    radial-gradient(50rem 35rem at 0% 0%, rgba(225, 29, 42, 0.05), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Display headings — condensed, bold, uppercase sporty feel */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* Reusable component utilities ------------------------------------------- */
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-[var(--shadow-card)];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface-2
+      px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold uppercase tracking-wide text-heading sm:text-4xl;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0
+      after:bg-brand after:transition-all hover:after:w-full;
+  }
 }
