@@ -43,6 +43,9 @@ export const SETTING_DEFAULTS = {
     "The official home of the USA High School Cricket League — Texas high-school cricket, done right.",
 } as const;
 
+const LEGACY_LEADERSHIP_BODY =
+  "The USAHSC is run by a volunteer group of coaches, parents and cricket organizers dedicated to student athletes.";
+
 export type SettingKey = keyof typeof SETTING_DEFAULTS;
 export type SiteSettings = Record<SettingKey, string>;
 
@@ -57,7 +60,10 @@ export async function getSettings(): Promise<SiteSettings> {
     const rows = await prisma.setting.findMany();
     for (const row of rows) {
       if (row.key in merged && row.value != null) {
-        merged[row.key as SettingKey] = row.value;
+        merged[row.key as SettingKey] =
+          row.key === "leadershipBody" && row.value === LEGACY_LEADERSHIP_BODY
+            ? SETTING_DEFAULTS.leadershipBody
+            : row.value;
       }
     }
   } catch {
