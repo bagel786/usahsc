@@ -30,7 +30,7 @@ export const SETTING_DEFAULTS = {
     "High-school cricket builds discipline, teamwork and belonging. For many students it is their first taste of representing their school. Giving that experience a real league — with records, rivalries and recognition — is how the sport grows in the United States.",
   leadershipTitle: "League Leadership",
   leadershipBody:
-    "The USAHSC is run by a volunteer group of coaches, parents and cricket organizers dedicated to student athletes.",
+    "Safiullah Baig — President and Coordinating Officer, 2025-2027\nBuilt the league platform; coordinated school representatives, schedules, playoffs, and championship operations.\n\nSaiansh Bade — Co-President, 2026-2027",
 
   // Contact / social
   contactEmail: "info@usahsc.com",

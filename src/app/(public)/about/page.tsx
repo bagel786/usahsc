@@ -52,7 +52,9 @@ export default async function AboutPage() {
             <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-heading">
               {s.leadershipTitle}
             </h2>
-            <p className="mt-2 max-w-2xl text-muted">{s.leadershipBody}</p>
+            <p className="mt-2 max-w-2xl whitespace-pre-line text-muted">
+              {s.leadershipBody}
+            </p>
           </div>
         </div>
       </div>
