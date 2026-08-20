@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Oswald } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,7 +15,7 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "USA High School Cricket League",
     template: "%s · USAHSC",
@@ -26,7 +27,33 @@ export const metadata: Metadata = {
     description: "Building the future of high-school cricket in Texas.",
     images: ["/brand/logo-square.png"],
     type: "website",
+    siteName: "USAHSC",
   },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SportsOrganization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "USA High School Cricket League",
+      alternateName: "USAHSC",
+      url: `${SITE_URL}/`,
+      description:
+        "A high-school cricket league organizing fixtures, standings, statistics, playoffs, and championship competition in Texas.",
+      sameAs: ["https://cricclubs.com/USHSC", "https://instagram.com/usahsc"],
+      member: { "@id": "https://safiullahbaig.com/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://safiullahbaig.com/#person",
+      name: "Safiullah Baig",
+      url: "https://safiullahbaig.com/",
+      jobTitle: "President and Coordinating Officer",
+      memberOf: { "@id": `${SITE_URL}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -37,7 +64,15 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${oswald.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

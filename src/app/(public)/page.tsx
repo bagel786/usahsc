@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Trophy, Users } from "lucide-react";
@@ -8,6 +9,11 @@ import { StandingsTable } from "@/components/site/standings-table";
 import { TeamLogo } from "@/components/site/team-logo";
 import { getSettings } from "@/lib/content";
 import { getUpcomingMatches, getStandings, getTeams } from "@/lib/queries";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
 
 export default async function HomePage() {
   const [settings, upcoming, standings, teams] = await Promise.all([

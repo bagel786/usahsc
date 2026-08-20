@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
+import { SITE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
   const routes = ["", "/about", "/teams", "/schedule", "/standings", "/stats", "/register", "/contact"];
 
   const staticPages: MetadataRoute.Sitemap = routes.map((r) => ({
-    url: `${base}${r}`,
+    url: `${SITE_URL}${r}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: r === "" ? 1 : 0.7,
@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       select: { slug: true, updatedAt: true },
     });
     teamPages = teams.map((t) => ({
-      url: `${base}/teams/${t.slug}`,
+      url: `${SITE_URL}/teams/${t.slug}`,
       lastModified: t.updatedAt,
       changeFrequency: "weekly",
       priority: 0.6,

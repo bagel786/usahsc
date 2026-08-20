@@ -4,9 +4,17 @@ import { PageHeader } from "@/components/site/page-header";
 import { getSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About & Leadership",
   description:
-    "The mission of the USA High School Cricket League and why high-school cricket matters.",
+    "The mission, work, and student leadership of the USA High School Cricket League in Texas.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About & Leadership · USAHSC",
+    description:
+      "The mission, work, and student leadership of the USA High School Cricket League in Texas.",
+    url: "/about",
+    type: "website",
+  },
 };
 
 export default async function AboutPage() {
@@ -55,6 +63,14 @@ export default async function AboutPage() {
             <p className="mt-2 max-w-2xl whitespace-pre-line text-muted">
               {s.leadershipBody}
             </p>
+            <a
+              href="https://safiullahbaig.com/"
+              target="_blank"
+              rel="me noopener noreferrer"
+              className="mt-3 inline-block text-sm font-medium text-electric underline underline-offset-4 hover:text-heading"
+            >
+              View Safiullah Baig’s developer portfolio
+            </a>
           </div>
         </div>
       </div>
